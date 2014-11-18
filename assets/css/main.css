@@ -166,7 +166,7 @@ img {
 
 
 .wallet-table-contents li {
-    padding: 8px 20px;
+    padding: 6px 20px;
     transition: background-color 0.3s ease-in;
 }
 
@@ -175,7 +175,7 @@ img {
 }
 
 .wallet-table-contents img {
-    height: 48px;
+    height: 42px;
     padding-right: 10px;
     vertical-align: middle;
 }
