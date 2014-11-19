@@ -171,6 +171,10 @@ img {
     transition: background-color 0.3s ease-in;
 }
 
+.wallet-table-contents li:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
 .wallet-table-contents li:hover {
     background-color: rgba(150, 125, 75, 0.5);
 }
