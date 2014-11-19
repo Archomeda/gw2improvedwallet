@@ -215,3 +215,52 @@ img {
     background: #ccc3b1;
     border: 1px solid black;
 }
+
+.wallet-category-toggle{
+    float: right;
+    width: 20px;
+    height: auto;
+    max-height: 20px;  
+}
+
+.ul-closed{
+    display: none;
+}
+
+.pinned-category{
+    height: 64px;
+    border-bottom: 2px solid black;
+    padding: 4px;
+}
+
+.pinned-table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    padding: 0px;
+    table-layout: fixed;
+}
+
+.pinned-images{
+    height: 75%;
+    border-collapse: collapse;
+    padding: 0px;
+}
+
+.pinned-images td{
+    text-align: center;
+}
+
+.pinned-images td img{
+    padding-right: 0px;
+}
+
+.pinned-amounts{
+    height:25%;
+    border-collapse: collapse;
+    padding: 0px;
+}
+
+.pinned-amounts{
+    text-align: center;
+}
