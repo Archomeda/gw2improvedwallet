@@ -318,6 +318,10 @@ $(document).ready(function() {
         var id = $(this).parent().parent().parent().attr("id");
         toggleWatch(id);
     });
+    
+    $("#select-cancel").click(function(){
+        $("#withdraw-overlay").hide(); 
+    });
 
     // Initialize default watch list
     toggleWatch("transmutationcharge");
