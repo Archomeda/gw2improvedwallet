@@ -185,21 +185,32 @@ img {
     vertical-align: middle;
 }
 
-.wallet-category-open {
+.wallet-category {
     display: block;
-}
-
-.wallet-category-open {
     margin-bottom: 10px;
 }
 
-.wallet-category-closed {
+.wallet-category-open > .wallet-category-header {
+    background-image: url(../img/arrow-collapse-down.png);
+}
+
+.wallet-category-closed > .wallet-category-header {
+    background-image: url(../img/arrow-collapse-right.png);
+}
+
+.wallet-category-hidden {
     display: none;
 }
 
 .wallet-category-header {
     padding: 5px 10px;
-    background: #222222;
+    background-color: #222222;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.wallet-category-header:hover {
+    cursor: pointer;
 }
 
 .wallet-table-contents .amount {

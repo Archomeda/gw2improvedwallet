@@ -40,7 +40,7 @@
                         </ul>
                     </div>
                     <div class="wallet-table-contents">
-                        <div class="wallet-category-open" id="wallet-general">
+                        <div class="wallet-category wallet-category-open" id="wallet-general">
                             <div class="wallet-category-header">General</div>
                             <ul>
                                 <li><img src="assets/img/Transmutation_Charge.png" /><span class="amount">100</span> Transmutation Charges</li>
@@ -51,7 +51,7 @@
                                 <li><img src="assets/img/Bandit_Crest.png" /><span class="amount">1,201</span> Bandit Crests</li>
                             </ul>
                         </div>
-                        <div class="wallet-category-open" id="wallet-dungeons">
+                        <div class="wallet-category wallet-category-open" id="wallet-dungeons">
                             <div class="wallet-category-header">Dungeons</div>
                             <ul>
                                 <li><img src="assets/img/Ascalonian_Tear.png" /><span class="amount">1,521</span> Ascalonian Tears</li>
@@ -66,7 +66,7 @@
                                 <li><img src="assets/img/Pristine_Fractal_Relic.png" /><span class="amount">156</span> Pristine Fractal Relics <button class="wallet-withdraw" id="withdraw-pristinefractalrelics">Withdraw</button></li>
                             </ul>
                         </div>
-                        <div class="wallet-category-open" id="wallet-claimtickets">
+                        <div class="wallet-category wallet-category-open" id="wallet-claimtickets">
                             <div class="wallet-category-header">Claim Tickets</div>
                             <ul>
                                 <li><img src="assets/img/Pact_Victory_Token.png" /><span class="amount">2</span> Pact Victory Tokens</li>
@@ -79,7 +79,7 @@
                                 <li><img src="assets/img/Dragon's_Jade_Claim_Ticket.png" /><span class="amount">1</span> Dragon's Jade Claim Tickets (hidden if 0)</li>
                             </ul>
                         </div>
-                        <div class="wallet-category-open" id="wallet-festivals">
+                        <div class="wallet-category wallet-category-open" id="wallet-festivals">
                             <div class="wallet-category-header">Festivals</div>
                             <ul>
                                 <li><img src="assets/img/Piece_of_Candy_Corn.png" /><span class="amount">6,437</span> Pieces of Candy Corn <button class="wallet-withdraw" id="withdraw-piecesofcandycorn">Withdraw</button></li>
@@ -92,7 +92,7 @@
                                 <li><img src="assets/img/Queen's_Gauntlet_Entrance_Ticket.png" /><span class="amount">457</span> Queen Gauntlet Entrance Tickets</li>
                             </ul>
                         </div>
-                        <div class="wallet-category-open" id="wallet-sab">
+                        <div class="wallet-category wallet-category-open" id="wallet-sab">
                             <div class="wallet-category-header">Super Adventure Box</div>
                             <ul>
                                 <li><img src="assets/img/Bauble.png" /><span class="amount">9,001</span> Baubles (hidden if 0)</li>
@@ -107,7 +107,7 @@
                                 <li><img src="assets/img/Storm_Wizard_Z-3.png" /><span class="amount">1</span> Storm Wizard Z-3 (hidden if 0) <button class="wallet-withdraw" id="withdraw-stormwizardz3">Withdraw</button></li>
                             </ul>
                         </div>
-                        <div class="wallet-category-open" id="wallet-historical">
+                        <div class="wallet-category wallet-category-open" id="wallet-historical">
                             <div class="wallet-category-header">Historical</div>
                             <ul>
                                 <li><img src="assets/img/Captain's_Council_Commendation.png" /><span class="amount">131</span> Captain's Council Commendations (hidden if 0)</li>
@@ -132,12 +132,26 @@ $(document).ready(function() {
         $(".wallet-table-menu .selected").removeClass("selected");
         $("#" + id).addClass("selected");
         if (category == "all") {
-            $(".wallet-table-contents .wallet-category-closed").removeClass("wallet-category-closed").addClass("wallet-category-open");
-            $(".wallet-table-contents .wallet-category-header").show();
+            $(".wallet-category-closed ul").hide();
+            $(".wallet-category-hidden").removeClass("wallet-category-hidden");
+            $(".wallet-category-header").show();
         } else {
-            $(".wallet-table-contents .wallet-category-open").removeClass("wallet-category-open").addClass("wallet-category-closed");
-            $("#wallet-" + category).removeClass("wallet-category-closed").addClass("wallet-category-open");
-            $(".wallet-table-contents .wallet-category-header").hide();
+            $(".wallet-category").addClass("wallet-category-hidden");
+            $("#wallet-" + category).removeClass("wallet-category-hidden");
+            $("#wallet-" + category + " ul").show();
+            $(".wallet-category-header").hide();
+        }
+    });
+
+    $(".wallet-category-header").click(function() {
+        var $parent = $(this).parent();
+        var $ul = $("ul", $parent);
+        if ($parent.hasClass("wallet-category-open")) {
+            $parent.removeClass("wallet-category-open").addClass("wallet-category-closed");
+            $ul.slideUp();
+        } else {
+            $parent.removeClass("wallet-category-closed").addClass("wallet-category-open");
+            $ul.slideDown();
         }
     });
 
