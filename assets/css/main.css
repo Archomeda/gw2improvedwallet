@@ -167,7 +167,7 @@ img {
 
 
 .wallet-table-contents li {
-    padding: 6px 20px;
+    padding: 6px 4px 6px 20px;
     transition: background-color 0.3s ease-in;
 }
 
@@ -209,11 +209,11 @@ img {
     text-align: right;
 }
 
-.wallet-table-contents button.wallet-withdraw {
+.wallet-withdraw {
     float: right;
-    margin-top: 12px;
-    background: #ccc3b1;
-    border: 1px solid black;
+    max-height: 32px;
+    margin-top: 5px;
+    content: url("../img/withdraw.png");
 }
 
 .wallet-category-toggle{
@@ -223,8 +223,14 @@ img {
     max-height: 20px;  
 }
 
+.wallet-category-open ul{
+    overflow: hidden;
+}
+
+
+
 .ul-closed{
-    display: none;
+    height: 0px;
 }
 
 .pinned-category{
