@@ -1,0 +1,260 @@
+html, body {
+    background: #000;
+    color: #ddd;
+    font-family: "Times New Roman";
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.wallet-outer {
+    width: 996px;
+    height: 761px;
+    margin: auto;
+    background: url(../img/wallet-background.jpg) no-repeat;
+}
+
+.wallet-inner {
+    height: 700px;
+    padding: 25px 45px 36px 74px;
+}
+
+.wallet-contents {
+    height: 100%;
+    border: 1px solid black;
+}
+
+
+.wallet-header {
+    margin-bottom: 15px;
+    height: 70px;
+    font-size: 28px;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid black;
+}
+
+.wallet-header table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.wallet-header td {
+    width: 25%;
+    height: 100%;
+}
+
+.wallet-header td:not(:first-child) {
+    border-left: 2px solid black;
+}
+
+.wallet-header img.icon {
+    height: 48px;
+    margin-top: 8px;
+    margin-left: 5px;
+    float: left;
+}
+
+.wallet-header .amount {
+    display: inline-block;
+    margin: 15px 10px;
+}
+
+.wallet-contents-inner {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+.wallet-gold {
+    background: rgba(255, 240, 70, 0.25);
+    transition: background-color 0.3s ease-in;
+    text-align: center;
+}
+
+.wallet-gold:hover {
+    background-color: rgba(255, 240, 70, 0.5);
+}
+
+.wallet-header .amount-gold {
+    color: #fbca51;
+}
+
+.wallet-header .amount-silver {
+    color: #cfcfcd;
+}
+
+.wallet-header .amount-copper {
+    color: #cf8047;
+}
+
+.wallet-gems {
+    background: rgba(80, 140, 240, 0.25);
+    color: #709fd5;
+    transition: background-color 0.3s ease-in;
+}
+
+.wallet-gems:hover {
+    background-color: rgba(80, 140, 240, 0.5);
+}
+
+.wallet-karma {
+    background: rgba(220, 80, 220, 0.25);
+    color: #b769a5;
+    transition: background-color 0.3s ease-in;
+}
+
+.wallet-karma:hover {
+    background-color: rgba(220, 80, 220, 0.5);
+}
+
+.wallet-laurels {
+    background: rgba(100, 240, 50, 0.25);
+    color: #72b96d;
+    transition: background-color 0.3s ease-in;
+}
+
+.wallet-laurels:hover {
+    background-color: rgba(100, 240, 50, 0.5);
+}
+
+
+.wallet-menu, .wallet-grid {
+    display: block;
+}
+
+.wallet-menu {
+    font-size: 18px;
+    border: 2px solid black;
+}
+
+.wallet-menu ul {
+    display: table;
+    width: 100%;
+}
+
+.wallet-menu li {
+    display: table-cell;
+    padding: 6px 8px 4px 8px;
+    background: #031026;
+    background-image: radial-gradient(65% 200% at 50% 220%, #4a87f6, #031026);
+    background-position: 0 40px;
+    background-repeat: no-repeat;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.wallet-menu li img {
+    height: 32px;
+    margin-top: -2px;
+    padding-right: 5px;
+}
+
+.wallet-menu li:not(:first-child) {
+    border-left: 2px solid black;
+}
+
+.wallet-menu li:hover, .wallet-menu li.selected {
+    background-position: center center;
+}
+
+.wallet-menu li:hover {
+    cursor: pointer;
+}
+
+
+.wallet-category {
+    display: block;
+}
+
+.wallet-category-hidden {
+    display: none;
+}
+
+.wallet-grid {
+    height: 552px;
+    border: 2px solid black;
+    border-top: none;
+    font-size: 18px;
+    overflow-y: auto;
+}
+
+.wallet-grid li {
+    width: 33.33%;
+    float: left;
+    overflow: hidden;
+}
+
+.wallet-grid li > span {
+    position: relative;
+    display: table;
+    margin: 4px;
+    padding: 2px 6px;
+    height: 88px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.wallet-grid li > span:hover {
+}
+
+.wallet-grid img {
+    display: table-cell;
+    margin-top: 16px;
+    height: 56px;
+}
+
+.wallet-grid .amount {
+    display: table-cell;
+    width: 209px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.wallet-grid .buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.wallet-grid .buttons a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.wallet-grid .buttons a:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.button-watch {
+    background: url(../img/watch.png) no-repeat;
+}
+
+.watching .button-watch {
+    background: url(../img/watch-on.png) no-repeat;
+    opacity: 1 !important;
+}
+
+.button-withdraw {
+    background: url(../img/withdraw.png) no-repeat;
+    background-position: center top;
+    background-size: 80%;
+}
+
+.wallet-grid .note {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 14px;
+    color: #999999;
+}

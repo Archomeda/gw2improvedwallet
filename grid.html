@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Guild Wars 2 - Improved Account Wallet (grid view)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/grid.css" type='text/css'>
+</head>
+
+<body>
+    <div class="wallet-outer">
+        <div class="wallet-inner">
+            <div class="wallet-contents">
+                <div class="wallet-header">
+                    <table>
+                        <tr>
+                            <td class="wallet-gold">
+                                <span class="amount-gold">245</span><img src="assets/img/coin-gold.png" />
+                                <span class="amount-silver">41</span><img src="assets/img/coin-silver.png" />
+                                <span class="amount-copper">11</span><img src="assets/img/coin-copper.png" />
+                            </td>
+                            <td class="wallet-karma"><img class="icon" src="assets/img/karma.png" /><span class="amount">2,641,813</span></td>
+                            <td class="wallet-laurels"><img class="icon" src="assets/img/laurels.png" /><span class="amount">234</span></td>
+                            <td class="wallet-gems"><img class="icon" src="assets/img/gems.png" /><span class="amount">480</span></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="wallet-contents-inner">
+                    <div class="wallet-menu">
+                        <ul>
+                            <li class="selected" id="wallet-menu-watch"><img src="assets/img/category-watch.png" />Watch list
+                            <li id="wallet-menu-general"><img src="assets/img/category-general.png" />General
+                            <li id="wallet-menu-dungeons"><img src="assets/img/category-dungeons.png" />Dungeons
+                            <li id="wallet-menu-festivals"><img src="assets/img/category-festivals.png" />Festivals
+                            <li id="wallet-menu-sab"><img src="assets/img/category-sab.png" />Super Adventure Box
+                            <li id="wallet-menu-historical"><img src="assets/img/category-historical.png" />Historical
+                        </ul>
+                    </div>
+                    <div class="wallet-grid">
+                        <div class="wallet-category" id="wallet-watch">
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="wallet-category wallet-category-hidden" id="wallet-general">
+                            <ul>
+                                <li id="transmutationcharge"><span>
+                                    <img src="assets/img/Transmutation_Charge.png" />
+                                    <span class="amount">100<br />Transmutation Charges</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="guildcommendation"><span>
+                                    <img src="assets/img/Guild_Commendation.png" />
+                                    <span class="amount">90<br />Guild Commendations</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="badgeofhonor"><span>
+                                    <img src="assets/img/Badge_of_Honor.png" />
+                                    <span class="amount">10,014<br />Badges of Honor</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="blacklionclaimticketscrap"><span>
+                                    <img src="assets/img/Black_Lion_Claim_Ticket_Scrap.png" />
+                                    <span class="amount">9<br />Black Lion Claim Ticket Scraps</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="blacklionclaimticket"><span>
+                                    <img src="assets/img/Black_Lion_Claim_Ticket.png" />
+                                    <span class="amount">2<br />Black Lion Claim Tickets</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="wvwtournamentclaimticket"><span>
+                                    <img src="assets/img/WvW_Tournament_Claim_Ticket.png" />
+                                    <span class="amount">700<br />WvW Tournament Claim Tickets</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="geode"><span>
+                                    <img src="assets/img/Geode.png" />
+                                    <span class="amount">861<br />Geodes</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="banditcrest"><span>
+                                    <img src="assets/img/Bandit_Crest.png" />
+                                    <span class="amount">1,201<br />Bandit Crests</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                            </ul>
+                        </div>
+                        <div class="wallet-category wallet-category-hidden" id="wallet-dungeons">
+                            <ul>
+                                <li id="ascaloniantear"><span>
+                                    <img src="assets/img/Ascalonian_Tear.png" />
+                                    <span class="amount">1,521<br />Ascalonian Tears</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="sealofbeetletun"><span>
+                                    <img src="assets/img/Seal_of_Beetletun.png" />
+                                    <span class="amount">974<br />Seals of Beetletun</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="deadlybloom"><span>
+                                    <img src="assets/img/Deadly_Bloom.png" />
+                                    <span class="amount">2,004<br />Deadly Blooms</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="manifestoofthemoletariate"><span>
+                                    <img src="assets/img/Manifesto_of_the_Moletariate.png" />
+                                    <span class="amount">1,411<br />Manifestos of the Moletariate</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="flamelegioncharrcarving"><span>
+                                    <img src="assets/img/Flame_Legion_Charr_Carving.png" />
+                                    <span class="amount">3,141<br />Flame Legion Charr Carvings</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="symbolofkoda"><span>
+                                    <img src="assets/img/Symbol_of_Koda.png" />
+                                    <span class="amount">432<br />Symbols of Koda</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="knowledgecrystal"><span>
+                                    <img src="assets/img/Knowledge_Crystal.png" />
+                                    <span class="amount">743<br />Knowledge Crystals</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="shardofzhaitan"><span>
+                                    <img src="assets/img/Shard_of_Zhaitan.png" />
+                                    <span class="amount">118<br />Shards of Zhaitan</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="fractalrelic"><span>
+                                    <img src="assets/img/Fractal_Relic.png" />
+                                    <span class="amount">1,143<br />Fractal Relics</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                                <li id="pristinefractalrelic"><span>
+                                    <img src="assets/img/Pristine_Fractal_Relic.png" />
+                                    <span class="amount">156<br />Pristine Fractal Relics</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                </span>
+                            </ul>
+                        </div>
+                        <div class="wallet-category wallet-category-hidden" id="wallet-festivals">
+                            <ul>
+                                <li id="uglywoolsock"><span>
+                                    <img src="assets/img/Ugly_Wool_Sock.png" />
+                                    <span class="amount">708<br />Ugly Wool Socks</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="uglywoolhat"><span>
+                                    <img src="assets/img/Ugly_Wool_Hat.png" />
+                                    <span class="amount">634<br />Ugly Wool Hats</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="uglywoolsweater"><span>
+                                    <img src="assets/img/Ugly_Wool_Sweater.png" />
+                                    <span class="amount">549<br />Ugly Wool Sweaters</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="queensgauntletentranceticket"><span>
+                                    <img src="assets/img/Queen's_Gauntlet_Entrance_Ticket.png" />
+                                    <span class="amount">457<br />Queen Gauntlet Entrance Tickets</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                            </ul>
+                        </div>
+                        <div class="wallet-category wallet-category-hidden" id="wallet-sab">
+                            <ul>
+                                <li id="bauble"><span>
+                                    <img src="assets/img/Bauble.png" />
+                                    <span class="amount">9,001<br />Baubles</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="baublebubble"><span>
+                                    <img src="assets/img/Bauble_Bubble.png" />
+                                    <span class="amount">12<br />Bauble Bubbels</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="continuecoin"><span>
+                                    <img src="assets/img/Continue_Coin.png" />
+                                    <span class="amount">24<br />Continue Coins</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="infinitecontinuecoin"><span>
+                                    <img src="assets/img/Infinite_Continue_Coin.png" />
+                                    <span class="amount">1<br />Infinite Continue Coins</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="kingtoadz1"><span>
+                                    <img src="assets/img/King_Toad_Z-1.png" />
+                                    <span class="amount">4<br />King Toad Z-1</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="kingtoadz2"><span>
+                                    <img src="assets/img/King_Toad_Z-2.png" />
+                                    <span class="amount">2<br />King Toad Z-2</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="kingtoadz3"><span>
+                                    <img src="assets/img/King_Toad_Z-3.png" />
+                                    <span class="amount">2<br />King Toad Z-3</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="stormwizardz1"><span>
+                                    <img src="assets/img/Storm_Wizard_Z-1.png" />
+                                    <span class="amount">3<br />Storm Wizard Z-1</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="stormwizardz2"><span>
+                                    <img src="assets/img/Storm_Wizard_Z-2.png" />
+                                    <span class="amount">2<br />Storm Wizard Z-2</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="stormwizardz3"><span>
+                                    <img src="assets/img/Storm_Wizard_Z-3.png" />
+                                    <span class="amount">1<br />Storm Wizard Z-3</span>
+                                    <span class="buttons"><a class="button-withdraw" title="Withdraw"></a><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                            </ul>
+                        </div>
+                        <div class="wallet-category wallet-category-hidden" id="wallet-historical">
+                            <ul>
+                                <li id="captainscouncilcommendation"><span>
+                                    <img src="assets/img/Captain's_Council_Commendation.png" />
+                                    <span class="amount">131<br />Captain's Council Commendations</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="fortunescrap"><span>
+                                    <img src="assets/img/Fortune_Scrap.png" />
+                                    <span class="amount">395<br />Fortune Scraps</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="goldenfortunescrap"><span>
+                                    <img src="assets/img/Golden_Fortune_Scrap.png" />
+                                    <span class="amount">2<br />Golden Fortune Scraps</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                                <li id="racetrackvoucher"><span>
+                                    <img src="assets/img/Race_Track_Voucher.png" />
+                                    <span class="amount">3<br />Race Track Vouchers</span>
+                                    <span class="buttons"><a class="button-watch" title="Add to watch list"></a></span>
+                                    <span class="note">hidden if 0</span>
+                                </span>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+$(document).ready(function() {
+    $(".wallet-menu li").click(function() {
+        var id = $(this).attr("id");
+        var category = id.split("-")[2];
+
+        $(".wallet-menu .selected").removeClass("selected");
+        $("#" + id).addClass("selected");
+
+        $(".wallet-category").addClass("wallet-category-hidden");
+        $("#wallet-" + category).removeClass("wallet-category-hidden");
+        $("#wallet-" + category + " ul").show();
+    });
+
+    $(".button-withdraw").click(function() {
+        alert("A nice window should pop up to choose an amount (like the one in the newly designed TP when buying or selling an item).\nIn order to put an item back, you need to click on a new menu item \"Store in Wallet\" in the context menu of said item. However, like the Minis previously, this should not be done when storing everything into storage as some items here conflict with the Material Storage.\n\nSorry that I haven't gotten the time to make this (yet).");
+    });
+
+    $(".button-watch").click(function() {
+        var id = $(this).parent().parent().parent().attr("id");
+        toggleWatch(id);
+    });
+
+    // Initialize default watch list
+    toggleWatch("transmutationcharge");
+    toggleWatch("badgeofhonor");
+    toggleWatch("guildcommendation");
+    toggleWatch("ascaloniantear");
+    toggleWatch("sealofbeetletun");
+    toggleWatch("deadlybloom");
+    toggleWatch("manifestoofthemoletariate");
+    toggleWatch("flamelegioncharrcarving");
+    toggleWatch("symbolofkoda");
+    toggleWatch("knowledgecrystal");
+    toggleWatch("shardofzhaitan");
+    toggleWatch("fractalrelic");
+});
+
+function toggleWatch(id) {
+    var $item = $("#" + id);
+    if ($item.hasClass("watching")) {
+        $("#watch-" + id).remove();
+    } else {
+        $("#wallet-watch ul").append("<li id='watch-" + id + "' class='watching' />");
+        $("#watch-" + id).append($item.html());
+        $(".button-watch", $("#watch-" + id)).click(function() {
+            var id = $(this).parent().parent().parent().attr("id").split("-")[1];
+            toggleWatch(id);
+        });
+    }
+    $item.toggleClass("watching");
+}
+</script>
+
+</html>
