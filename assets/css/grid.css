@@ -15,6 +15,7 @@ img {
 }
 
 .wallet-outer {
+    position: relative;
     width: 996px;
     height: 761px;
     margin: auto;
@@ -31,6 +32,77 @@ img {
     border: 1px solid black;
 }
 
+#withdraw-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:rgba(1,1,1,.4);
+    z-index: 999;
+}
+
+#withdraw-dialog{
+    position: absolute;
+    width: 332px;
+    height: 240px;
+    left: 332px;
+    top: 202px;
+    background-image: url("../img/wallet-background.png");
+    background-size: 100% 100%;
+    z-index: 1000;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+#withdraw-info{
+    width: 100%;
+    height: 48px;
+    display: inline-flex;
+}
+
+#withdraw-info img{
+    height:48px;
+    width: 48px;
+}
+
+#withdraw-info div{
+    margin-left: 4px;
+    height: 100%;
+    width: 216px;
+    display: table;
+}
+
+#withdraw-info div span{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#input-spinner{
+    width:40%;
+    vertical-align: middle;
+    text-align: right;
+}
+
+#input-slider{
+    width:55%;
+    vertical-align: middle;
+}
+
+#stock-options{
+    text-align: center;
+}
+
+#stock-options button{
+    width: 32%;
+}
+
+#confirm-cancel{
+    padding-top: 24px;
+    text-align: right;
+}
+
+#direct-input, #stock-options, #confirm-cancel{
+    margin: 4px 0px 4px 0px;
+}
 
 .wallet-header {
     margin-bottom: 15px;
