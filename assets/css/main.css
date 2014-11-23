@@ -47,6 +47,12 @@ html, body {
     font-size: 9pt;
 }
 
+.disclaimer {
+    margin-top: 20px;
+    padding: 0 5px;
+    font-size: 7pt;
+}
+
 
 .design-container {
     position: absolute;
