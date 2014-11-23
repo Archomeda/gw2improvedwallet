@@ -11,6 +11,39 @@
 
 <body>
     <div class="wallet-outer">
+        <div id="withdraw-overlay">
+            <div id="withdraw-dialog">
+                <div id=withdraw-border>
+                    <div id="withdraw-info">
+                        <img></img>
+                        <div id="withdraw-text">
+                            <div>
+                                <span id="withdraw-name">Transmutation Charge</span>
+                            </div>
+                            <div>
+                                <span>You have </span>
+                                <span id="withdraw-item-amount">100</span>
+                            </div>
+                        </div>
+                    </div>    
+
+                    <div id="direct-input">
+                        <input type="number" id="input-spinner" min="1" value="1"></input>
+                        <input type="range" id="input-slider" min="1" value="1"></input>
+                    </div>
+                    <div id="stock-options">
+                        <button id="select-100">100</button>
+                        <button id="select-250">250</button>
+                        <button id="select-all">All</button>
+                    </div>
+                    <div id="confirm-cancel">
+                        <button id="select-confirm">Confirm</button>
+                        <button id="select-cancel">Cancel</button>
+                    </div>
+                </div>
+                
+            </div>  
+        </div>
         <div class="wallet-inner">
             <div class="wallet-contents">
                 <div class="wallet-header">
@@ -265,6 +298,8 @@
 
 <script>
 $(document).ready(function() {
+    
+    $("#withdraw-overlay").hide();
     $(".wallet-menu li").click(function() {
         var id = $(this).attr("id");
         var category = id.split("-")[2];
@@ -278,12 +313,48 @@ $(document).ready(function() {
     });
 
     $(".button-withdraw").click(function() {
-        alert("A nice window should pop up to choose an amount (like the one in the newly designed TP when buying or selling an item).\nIn order to put an item back, you need to click on a new menu item \"Store in Wallet\" in the context menu of said item. However, like the Minis previously, this should not be done when storing everything into storage as some items here conflict with the Material Storage.\n\nSorry that I haven't gotten the time to make this (yet).");
+        //alert("A nice window should pop up to choose an amount (like the one in the newly designed TP when buying or selling an item).\nIn order to put an item back, you need to click on a new menu item \"Store in Wallet\" in the context menu of said item. However, like the Minis previously, this should not be done when storing everything into storage as some items here conflict with the Material Storage.\n\nSorry that I haven't gotten the time to make this (yet).");
+        setupWithdraw($(this).closest("li").attr("id"));
+        $("#withdraw-overlay").show();
     });
 
     $(".button-watch").click(function() {
         var id = $(this).parent().parent().parent().attr("id");
         toggleWatch(id);
+    });
+    
+    $("#select-cancel").click(function(){
+        $("#withdraw-overlay").hide(); 
+    });
+    
+    $("#select-confirm").click(function(){
+        $("#withdraw-overlay").hide(); 
+    });
+    
+    $("#select-100").click(function(){
+        setWithdrawAmount(100);
+    });
+    
+    $("#select-250").click(function(){
+        setWithdrawAmount(250);
+    });
+    
+    $("#select-all").click(function(){
+        setWithdrawAmount($("#input-slider").attr("max"));
+    });
+        
+    $("#input-slider").bind("input", function(){
+        console.log($("#input-spinner").val());
+//        if($("#input-spinner").val() !== $(this).val()){
+            $("#input-spinner").val($(this).val());
+//        }
+    });
+        
+    $("#input-spinner").bind("input", function(){
+        
+//        if($("#input-slider").val() !== $(this).val()){
+            $("#input-slider").val($(this).val());
+//        }
     });
 
     // Initialize default watch list
@@ -300,6 +371,24 @@ $(document).ready(function() {
     toggleWatch("shardofzhaitan");
     toggleWatch("fractalrelic");
 });
+    
+function setWithdrawAmount(n){
+    n = Math.min(n, $("#input-slider").attr("max"));
+    $("#input-slider").val(n);
+    $("#input-spinner").val(n);
+}
+    
+function setupWithdraw(id){
+    var $item = $("#" + id);
+    $("#withdraw-info img").attr("src", $item.children("span").children("img").attr("src"));
+    
+    var amount = $item.children("span").children(".amount").html().split("<br>")[0];
+    var name = $item.children("span").children(".amount").html().split("<br>")[1];
+    $("#withdraw-name").html(name);
+    $("#withdraw-item-amount").html(amount);
+    $("#input-slider").attr("max", amount);
+    $("#input-spinner").attr("max", amount);
+}
 
 function toggleWatch(id) {
     var $item = $("#" + id);
