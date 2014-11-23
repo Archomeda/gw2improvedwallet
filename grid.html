@@ -25,7 +25,7 @@
                                 <span id="withdraw-item-amount">100</span>
                             </div>
                         </div>
-                    </div>    
+                    </div>
 
                     <div id="direct-input">
                         <input type="number" id="input-spinner" min="1" value="1"></input>
@@ -41,8 +41,8 @@
                         <button id="select-cancel">Cancel</button>
                     </div>
                 </div>
-                
-            </div>  
+
+            </div>
         </div>
         <div class="wallet-inner">
             <div class="wallet-contents">
@@ -63,10 +63,10 @@
                 <div class="wallet-contents-inner">
                     <div class="wallet-menu">
                         <ul>
-                            <li class="selected" id="wallet-menu-watch"><img src="assets/img/category-watch.png" />Watch list
+                            <li class="selected" id="wallet-menu-watch"><img src="assets/img/category-watch.png" />Watch List
                             <li id="wallet-menu-general"><img src="assets/img/category-general.png" />General
                             <li id="wallet-menu-dungeons"><img src="assets/img/category-dungeons.png" />Dungeons
-                            <li id="wallet-menu-festivals"><img src="assets/img/category-festivals.png" />Festivals
+                            <li id="wallet-menu-festivals"><img src="assets/img/category-festivals.png" />Special Events
                             <li id="wallet-menu-historical"><img src="assets/img/category-historical.png" />Historical
                         </ul>
                     </div>
@@ -298,7 +298,7 @@
 
 <script>
 $(document).ready(function() {
-    
+
     $("#withdraw-overlay").hide();
     $(".wallet-menu li").click(function() {
         var id = $(this).attr("id");
@@ -322,36 +322,36 @@ $(document).ready(function() {
         var id = $(this).parent().parent().parent().attr("id");
         toggleWatch(id);
     });
-    
+
     $("#select-cancel").click(function(){
-        $("#withdraw-overlay").hide(); 
+        $("#withdraw-overlay").hide();
     });
-    
+
     $("#select-confirm").click(function(){
-        $("#withdraw-overlay").hide(); 
+        $("#withdraw-overlay").hide();
     });
-    
+
     $("#select-100").click(function(){
         setWithdrawAmount(100);
     });
-    
+
     $("#select-250").click(function(){
         setWithdrawAmount(250);
     });
-    
+
     $("#select-all").click(function(){
         setWithdrawAmount($("#input-slider").attr("max"));
     });
-        
+
     $("#input-slider").bind("input", function(){
         console.log($("#input-spinner").val());
 //        if($("#input-spinner").val() !== $(this).val()){
             $("#input-spinner").val($(this).val());
 //        }
     });
-        
+
     $("#input-spinner").bind("input", function(){
-        
+
 //        if($("#input-slider").val() !== $(this).val()){
             $("#input-slider").val($(this).val());
 //        }
@@ -371,17 +371,17 @@ $(document).ready(function() {
     toggleWatch("shardofzhaitan");
     toggleWatch("fractalrelic");
 });
-    
+
 function setWithdrawAmount(n){
     n = Math.min(n, $("#input-slider").attr("max"));
     $("#input-slider").val(n);
     $("#input-spinner").val(n);
 }
-    
+
 function setupWithdraw(id){
     var $item = $("#" + id);
     $("#withdraw-info img").attr("src", $item.children("span").children("img").attr("src"));
-    
+
     var amount = $item.children("span").children(".amount").html().split("<br>")[0];
     var name = $item.children("span").children(".amount").html().split("<br>")[1];
     $("#withdraw-name").html(name);
